@@ -1,0 +1,17 @@
+{
+  "name": "file-cache-manager",
+  "version": "0.1.0",
+  "description": "Caches file contents in memory with mtime invalidation and configurable size limits using LRU eviction.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
