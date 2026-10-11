@@ -1,6 +1,6 @@
 {
   "name": "file-cache-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Caches file contents in memory with mtime invalidation and configurable size limits using LRU eviction.",
   "type": "module",
   "main": "src/index.js",
