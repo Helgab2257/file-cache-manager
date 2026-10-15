@@ -30,3 +30,10 @@ The trade-off: `get` calls `stat` on every lookup to guarantee freshness. That i
 Size is counted in **entries**, not bytes. Byte accounting would require serializing every cached value (which may be a string, a `Buffer`, or an arbitrary object) and would surprise callers who store structured data. If you cache large files, set `maxSize` accordingly — a 10-entry cache can still hold gigabytes.
 
 The `key` option is a footgun: if your key function maps two genuinely different files to the same key, the cache will return whichever value it stored first and never re-read the second file (as long as the mtime matches). The key function is your responsibility; the default is the identity function, which is always safe.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
